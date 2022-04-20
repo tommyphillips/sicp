@@ -1,0 +1,40 @@
+% My First LaTeX package
+
+%% Identification
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sicp}[2022/04/01 Package for Aiding SICP Notetaking]
+
+%% Preliminary Declarations
+% Most packages extend and customise existing ones
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{paracol}
+\RequirePackage{listings}
+
+\newcommand{\fr}{\texttt{fold-right}}
+\newcommand{\fl}{\texttt{fold-left}}
+\newcommand{\init}{\texttt{init}}
+\newcommand{\y}{\hspace{.4em}\lambda\hspace{.4em}}
+\newcommand{\xxs}{\mathrm{xxs}}
+\newcommand{\xs}{\mathrm{xs}}
+\newcommand{\x}{\mathrm{x}}
+\newcommand{\xxn}{\mathrm{x_1..x_n}}
+\newcommand{\ttn}{\mathrm{t_1..t_n}}
+\newcommand{\aan}{\mathrm{a_0..a_n}}
+
+
+\makeatletter
+\newcommand{\raisemath}[1]{\mathpalette{\raisem@th{#1}}}
+\newcommand{\raisem@th}[3]{\raisebox{#1}{$#2#3$}}
+\makeatother
+
+\newcommand{\sicpFoldRightFull}[2]{\ensuremath{\texttt{fold-right} \Bigg|_{\raisemath{3pt}{\substack{#1 \\ \mathstrut #2}}}}}
+\newcommand{\sicpFoldRightFullApply}[3]{\ensuremath{\texttt{fold-right} \Bigg|_{\raisemath{3pt}{\substack{#1 \\ \mathstrut #2}}}^{\raisemath{-2pt} #3}}}
+
+\newcommand\sicpMap[1]{\ensuremath{\texttt{map} \Big|_{#1}}}
+\newcommand\sicpMapApply[2]{\ensuremath{\texttt{map} \Big|_{#1}^{#2}}}
+\newcommand\sicpMapFull[2]{\ensuremath{\texttt{map} \Big|_{#1 \mapsto (#2)}}}
+\newcommand\sicpMapFullApply[3]{\ensuremath{\texttt{map} \Big|_{#1 \mapsto (#2)}^{#3}}}
+
+\newcommand\sicpFilter[1]{\ensuremath{\texttt{filter} \Big|_{#1}}}
+\newcommand\sicpFilterApply[2]{\ensuremath{\texttt{filter} \Big|_{#1}^{#2}}}
